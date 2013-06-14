@@ -1,12 +1,25 @@
-(setq-default tab-width 4 indent-tabs-mode nil)
+(setq-default tab-width 2 indent-tabs-mode nil)
 (setq load-path (cons "~/.emacs.d/elisp" load-path))
 
 (require 'install-elisp)
 (setq install-elisp-repository-directory "~/.emacs.d/elisp/")
 
+;; c++ mode
+(add-hook 'c++-mode-hook
+          '(lambda()
+             (c-set-style "gnu")
+             (setq c-auto-newline nil)
+             (c-set-offset 'innamespace 0)   ; namespace {}の中はインデントしない
+             (c-set-offset 'arglist-close 0) ; 関数の引数リストの閉じ括弧はインデントしない
+             ))
+
 ;; haml-mode
 (require 'haml-mode)
 (add-to-list 'auto-mode-alist '("\\.haml$" . haml-mode))
+
+;; sass-mode
+(require 'sass-mode)
+(add-to-list 'auto-mode-alist '("\\.sass$" . sass-mode))
 
 ;; yaml-mode
 (require 'yaml-mode)
@@ -36,6 +49,26 @@
 ;; :back "\\?>")))
 ;; (add-to-list 'auto-mode-alist '("\\.php?\\'" . xml-mode))
 
+;; Matlab support
+;; You don't need this line if you placed it in prelude/personal
+(add-to-list 'load-path "~/.emacs.d/plugins/matlab-emacs")
+(load-library "matlab-load")
+(matlab-cedet-setup)
+(add-hook 'matlab-mode
+          (lambda ()
+            (auto-complete-mode 1)
+            ))
+
+;; (autoload 'octave-mode "octave-mod" nil t)
+;; (setq auto-mode-alist
+;;       (cons '("\\.m$" . octave-mode) auto-mode-alist))
+;; (add-hook 'octave-mode-hook
+;;           (lambda ()
+;;             (abbrev-mode 1)
+;;             (auto-fill-mode 1)
+;;             (if (eq window-system 'x)
+;;                 (font-lock-mode 1))))
+
 ;; set utf8
 ;; (set-language-environment "Japanese")
 ;; (set-terminal-coding-system 'utf-8)
@@ -45,14 +78,14 @@
 
 ;; default
 (custom-set-variables
-  ;; custom-set-variables was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
- )
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(matlab-indent-level 2))
 (custom-set-faces
-  ;; custom-set-faces was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  '(default ((t (:inherit nil :stipple nil :background "white" :foreground "black" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 120 :width normal :foundry "unknown" :family "ricty")))))
