@@ -51,13 +51,13 @@
 
 ;; Matlab support
 ;; You don't need this line if you placed it in prelude/personal
-;; (add-to-list 'load-path "~/.emacs.d/plugins/matlab-emacs")
-;; (load-library "matlab-load")
-;; (matlab-cedet-setup)
-;; (add-hook 'matlab-mode
-;;           (lambda ()
-;;             (auto-complete-mode 1)
-;;             ))
+(add-to-list 'load-path "~/.emacs.d/plugins/matlab-emacs")
+(load-library "matlab-load")
+(matlab-cedet-setup)
+(add-hook 'matlab-mode
+          (lambda ()
+            (auto-complete-mode 1)
+            ))
 
 ;; (autoload 'octave-mode "octave-mod" nil t)
 ;; (setq auto-mode-alist
