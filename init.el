@@ -4,6 +4,10 @@
 (require 'install-elisp)
 (setq install-elisp-repository-directory "~/.emacs.d/elisp/")
 
+(define-key global-map[C-tab] 'other-window)
+(define-key global-map [S-C-tab]
+  (lambda () (interactive) (other-window -1)))
+
 ;; c++ mode
 (add-hook 'c++-mode-hook
           '(lambda()
