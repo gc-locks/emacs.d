@@ -1,0 +1,7 @@
+;; Object SRecode Map
+;; EIEIO PERSISTENT OBJECT
+(srecode-map "SRecode Map"
+  :file "srecode-map.el"
+  :files '(("c:/Users/gc/AppData/Roaming/.emacs.d/plugins/matlab-emacs/templates/srecode-matlab.srt" . matlab-mode) ("c:/Program Files (x86)/emacs-24.3/etc/srecode/wisent.srt" . wisent-grammar-mode) ("c:/Program Files (x86)/emacs-24.3/etc/srecode/texi.srt" . texinfo-mode) ("c:/Program Files (x86)/emacs-24.3/etc/srecode/template.srt" . srecode-template-mode) ("c:/Program Files (x86)/emacs-24.3/etc/srecode/make.srt" . makefile-mode) ("c:/Program Files (x86)/emacs-24.3/etc/srecode/java.srt" . java-mode) ("c:/Program Files (x86)/emacs-24.3/etc/srecode/el.srt" . emacs-lisp-mode) ("c:/Program Files (x86)/emacs-24.3/etc/srecode/default.srt" . default) ("c:/Program Files (x86)/emacs-24.3/etc/srecode/cpp.srt" . c++-mode) ("c:/Program Files (x86)/emacs-24.3/etc/srecode/c.srt" . c-mode))
+  :apps '((tests ("c:/Program Files (x86)/emacs-24.3/etc/srecode/test.srt" . srecode-template-mode)) (getset ("c:/Program Files (x86)/emacs-24.3/etc/srecode/getset-cpp.srt" . c++-mode)) (ede ("c:/Program Files (x86)/emacs-24.3/etc/srecode/ede-make.srt" . makefile-mode) ("c:/Program Files (x86)/emacs-24.3/etc/srecode/ede-autoconf.srt" . autoconf-mode)) (document ("c:/Program Files (x86)/emacs-24.3/etc/srecode/doc-java.srt" . java-mode) ("c:/Program Files (x86)/emacs-24.3/etc/srecode/doc-default.srt" . default) ("c:/Program Files (x86)/emacs-24.3/etc/srecode/doc-cpp.srt" . c++-mode)))
+  )
