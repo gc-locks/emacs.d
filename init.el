@@ -8,6 +8,11 @@
 (define-key global-map [S-C-tab]
   (lambda () (interactive) (other-window -1)))
 
+(require 'auto-complete-config)
+(add-to-list 'ac-dictionary-directories "~/.emacs.d/elisp/ac-dict")
+(ac-config-default)
+(define-key ac-mode-map (kbd "M-TAB") 'auto-complete)
+
 ;;
 (require 'whitespace)
 (setq whitespace-style '(face           ; faceで可視化
@@ -36,19 +41,19 @@
 
 (global-whitespace-mode 1)
 
-(defvar my/bg-color "#ffffff")
-(set-face-attribute 'whitespace-trailing nil
-                    :background "#cccccc"
-                    :foreground "DeepPink")
-(set-face-attribute 'whitespace-tab nil
-                    :background my/bg-color
-                    :foreground "#ffffff")
-(set-face-attribute 'whitespace-space nil
-                    :background my/bg-color
-                    :foreground "GreenYellow"
-                    :weight 'bold)
-(set-face-attribute 'whitespace-empty nil
-                    :background my/bg-color)
+;; (defvar my/bg-color "#ffffff")
+;; (set-face-attribute 'whitespace-trailing nil
+;;                     :background "#cccccc"
+;;                     :foreground "DeepPink")
+;; (set-face-attribute 'whitespace-tab nil
+;;                     :background my/bg-color
+;;                     :foreground "#ffffff")
+;; (set-face-attribute 'whitespace-space nil
+;;                     :background my/bg-color
+;;                     :foreground "GreenYellow"
+;;                     :weight 'bold)
+;; (set-face-attribute 'whitespace-empty nil
+;;                     :background my/bg-color)
 
 ;; c++ mode
 (add-hook 'c++-mode-hook
@@ -71,6 +76,8 @@
 (require 'yaml-mode)
 (add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
 
+;; Gemfile ruby-mode
+(add-to-list 'auto-mode-alist '("\\Gemfile$" . ruby-mode))
 
 ;;--------------------------------------------------------------------------
 ;; csharp-mode
@@ -158,4 +165,4 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :stipple nil :background "white" :foreground "black" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 120 :width normal :foundry "unknown" :family "ricty")))))
+ '(default ((t (:inherit nil :stipple nil :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 120 :width normal :foundry "unknown" :family "ricty")))))
