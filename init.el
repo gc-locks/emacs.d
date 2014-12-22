@@ -45,7 +45,18 @@
 ;; 保存前に自動でクリーンアップ
 (setq whitespace-action '(auto-cleanup))
 
+;; 空白の色
 (global-whitespace-mode 1)
+
+(set-face-attribute 'whitespace-trailing nil
+                    :background "#cccccc")
+(set-face-attribute 'whitespace-empty nil
+                    :background "#cccccc")
+
+;; coding: utf-8
+(prefer-coding-system 'utf-8)
+(setq coding-system-for-read 'utf-8)
+(setq coding-system-for-write 'utf-8)
 
 ;; backup files
 (setq make-backup-files t)
@@ -85,6 +96,7 @@
 ;; auto-complete
 (require 'auto-complete-config)
 (ac-config-default)
+(define-key ac-mode-map (kbd "M-RET") 'auto-complete)
 (setq ac-ignore-case nil)
 
 ;; Robe
