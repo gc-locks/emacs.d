@@ -73,8 +73,9 @@
              (c-set-offset 'arglist-close 0) ; 関数の引数リストの閉じ括弧はインデントしない
              ))
 
-;; Gemfile ruby-mode
-(add-to-list 'auto-mode-alist '("\\Gemfile$" . ruby-mode))
+;; ruby-mode
+(add-to-list 'auto-mode-alist '("Gemfile$" . ruby-mode))
+(add-to-list 'auto-mode-alist '("\\.gemspec$" . ruby-mode))
 
 ;; MELPA
 (require 'package) ;; You might already have this line
@@ -84,6 +85,16 @@
   ;; For important compatibility libraries like cl-lib
   (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
 (package-initialize) ;; You might already have this line
+
+;; Color-Theme
+(require 'color-theme)
+(color-theme-initialize)
+(color-theme-dark-blue4)
+
+;; enhanced-ruby-mode
+(require 'enh-ruby-mode)
+(setq enh-ruby-bounce-deep-indent t)
+(setq enh-ruby-deep-indent-paren nil)
 
 ;; HAML
 (require 'haml-mode)
@@ -98,6 +109,7 @@
 (ac-config-default)
 (define-key ac-mode-map (kbd "M-RET") 'auto-complete)
 (setq ac-ignore-case nil)
+(add-to-list 'ac-modes 'enh-ruby-mode)
 
 ;; Robe
 (add-hook 'ruby-mode-hook 'robe-mode)
