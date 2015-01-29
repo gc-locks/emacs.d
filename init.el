@@ -1,6 +1,10 @@
 (setq-default tab-width 2 indent-tabs-mode nil)
 (setq load-path (cons "~/.emacs.d/elisp" load-path))
 
+;; hをバックスペースに
+(keyboard-translate ?\C-h ?\C-?)
+(global-set-key "\M-h" 'backward-kill-word)
+
 ;; フォント
 (set-face-attribute 'default nil
                     :family "Ricty" ;; font
@@ -86,6 +90,14 @@
   (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
 (package-initialize) ;; You might already have this line
 
+;; anzu
+(require 'anzu)
+(global-anzu-mode +1)
+(custom-set-variables
+ '(anzu-mode-lighter "")
+ '(anzu-deactivate-region t)
+ '(anzu-search-threshold 1000))
+
 ;; Color-Theme
 (require 'color-theme)
 (color-theme-initialize)
@@ -95,6 +107,11 @@
 (require 'enh-ruby-mode)
 (setq enh-ruby-bounce-deep-indent t)
 (setq enh-ruby-deep-indent-paren nil)
+
+;; ruby-block
+(require 'ruby-block)
+(ruby-block-mode t)
+(setq ruby-block-highlight-toggle t)
 
 ;; HAML
 (require 'haml-mode)
