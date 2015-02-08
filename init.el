@@ -1,6 +1,17 @@
 (setq-default tab-width 2 indent-tabs-mode nil)
 (setq load-path (cons "~/.emacs.d/elisp" load-path))
 
+;; shell mode
+(add-hook 'shell-mode-hook
+   (function
+    (lambda ()
+      ;;; シェルバッファの行数の上限を3000行にする
+      (setq comint-buffer-maximum-size 3000)
+      (ansi-color-for-comint-mode-on)
+      )
+    )
+   )
+
 ;; hをバックスペースに
 (keyboard-translate ?\C-h ?\C-?)
 (global-set-key "\M-h" 'backward-kill-word)
@@ -103,6 +114,15 @@
 (color-theme-initialize)
 (color-theme-dark-blue4)
 
+;; elscreen
+(require 'elscreen)
+(setq elscreen-prefix-key (kbd "C-z"))
+(elscreen-start)
+(setq elscreen-tab-display-kill-screen nil)
+(setq elscreen-tab-display-control nil)
+(global-set-key [?\C-\;] 'elscreen-next)
+(global-set-key [?\C-'] 'elscreen-toggle)
+
 ;; enhanced-ruby-mode
 (require 'enh-ruby-mode)
 (setq enh-ruby-bounce-deep-indent t)
@@ -112,6 +132,17 @@
 (require 'ruby-block)
 (ruby-block-mode t)
 (setq ruby-block-highlight-toggle t)
+
+;; rspec-mode
+(require 'rspec-mode)
+(eval-after-load 'rspec-mode
+  '(rspec-install-snippets))
+(custom-set-variables '(rspec-use-rake-flag nil))
+(custom-set-faces )
+(global-set-key [f9] 'rspec-verify-single)
+(global-set-key [S-f9] 'rspec-verify)
+(global-set-key [C-f9] 'rspec-rerun)
+(global-set-key [C-S-f9] 'rspec-verify-all)
 
 ;; HAML
 (require 'haml-mode)
