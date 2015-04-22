@@ -155,10 +155,25 @@
 ;; auto-complete
 (require 'auto-complete-config)
 (ac-config-default)
-(define-key ac-mode-map (kbd "M-RET") 'auto-complete)
+(define-key ac-mode-map (kbd "M-RET") 'ac-fuzzy-complete)
 (setq ac-ignore-case nil)
+(setq ac-auto-start 2)
+(setq ac-delay 0.05)
+(setq ac-auto-show-menu 0.05)
+(setq ac-use-fuzzy t)
+(setq ac-use-comphist t)
 (add-to-list 'ac-modes 'enh-ruby-mode)
 
 ;; Robe
 (add-hook 'ruby-mode-hook 'robe-mode)
 (add-hook 'robe-mode-hook 'ac-robe-setup)
+
+;; YaTeX
+(autoload 'yatex-mode "yatex" "Yet Another LaTeX mode" t)
+(setq auto-mode-alist (append
+  '(("\\.tex$" . yatex-mode)
+    ("\\.ltx$" . yatex-mode)
+    ("\\.cls$" . yatex-mode)
+    ("\\.sty$" . yatex-mode)
+    ("\\.clo$" . yatex-mode)
+    ("\\.bbl$" . yatex-mode)) auto-mode-alist))
