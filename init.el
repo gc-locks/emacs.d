@@ -88,6 +88,9 @@
              (c-set-offset 'arglist-close 0) ; 関数の引数リストの閉じ括弧はインデントしない
              ))
 
+;; perl-mode for php
+(add-to-list 'auto-mode-alist '("\\.php$" . perl-mode))
+
 ;; ruby-mode
 (add-to-list 'auto-mode-alist '("Gemfile$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.gemspec$" . ruby-mode))
@@ -101,13 +104,23 @@
   (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
 (package-initialize) ;; You might already have this line
 
+;; protobuf-mode
+(require 'protobuf-mode)
+(setq auto-mode-alist (append '(("\\.proto$" . protobuf-mode)) auto-mode-alist))
+
 ;; anzu
 (require 'anzu)
 (global-anzu-mode +1)
 (custom-set-variables
- '(anzu-mode-lighter "")
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  '(anzu-deactivate-region t)
- '(anzu-search-threshold 1000))
+ '(anzu-mode-lighter "")
+ '(anzu-search-threshold 1000)
+ '(rspec-use-rake-when-possible nil)
+ '(safe-local-variable-values (quote ((engine . riot)))))
 
 ;; Color-Theme
 (require 'color-theme)
@@ -137,8 +150,13 @@
 (require 'rspec-mode)
 (eval-after-load 'rspec-mode
   '(rspec-install-snippets))
-(custom-set-variables '(rspec-use-rake-flag nil))
-(custom-set-faces )
+
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
 (global-set-key [f9] 'rspec-verify-single)
 (global-set-key [S-f9] 'rspec-verify)
 (global-set-key [C-f9] 'rspec-rerun)
@@ -163,6 +181,7 @@
 (setq ac-use-fuzzy t)
 (setq ac-use-comphist t)
 (add-to-list 'ac-modes 'enh-ruby-mode)
+(add-to-list 'ac-modes 'protobuf-mode)
 
 ;; Robe
 (add-hook 'ruby-mode-hook 'robe-mode)
@@ -177,3 +196,10 @@
     ("\\.sty$" . yatex-mode)
     ("\\.clo$" . yatex-mode)
     ("\\.bbl$" . yatex-mode)) auto-mode-alist))
+
+;; web-mode
+(setq web-mode-markup-indent-offset 2)
+(setq web-mode-css-indent-offset 2)
+(setq web-mode-code-indent-offset 2)
+(setq web-mode-style-padding 2)
+(setq web-mode-script-padding 2)
