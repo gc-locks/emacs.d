@@ -1,6 +1,9 @@
 auto-save-list/*
 backup/*
-elpa/archives
+elpa/*
+.cask/*
+
+kkcrc
 
 *.elc
 *.dat
