@@ -3,6 +3,7 @@
 
 (setq company-idle-delay 0.05)
 (setq company-minimum-prefix-length 2)
+(setq company-dabbrev-downcase nil)
 
 (global-set-key (kbd "C-M-i") 'company-complete)
 
