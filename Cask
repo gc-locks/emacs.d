@@ -19,6 +19,7 @@
 (depends-on "idle-highlight-mode")
 (depends-on "init-loader")
 (depends-on "magit")
+(depends-on "markdown-mode")
 (depends-on "mozc")
 (depends-on "multiple-cursors")
 (depends-on "nyan-mode")
