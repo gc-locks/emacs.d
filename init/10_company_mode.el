@@ -1,5 +1,5 @@
 ;; company-mode
-(global-company-mode t)
+(global-company-mode nil)
 
 (setq company-idle-delay 0.05)
 (setq company-minimum-prefix-length 2)
