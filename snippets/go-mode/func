@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: func
+# key: func
+# --
+// $1 ${0:...}
+func ${1:name}($2) ($3err error) {
+  return
+}

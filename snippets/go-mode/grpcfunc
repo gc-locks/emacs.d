@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: grpcfunc
+# key: grpcfunc
+# --
+// $1 ...
+func (s *Server) ${1:name}(ctx context.Context, req *pb.$1Request) (resp *pb.$1Response, err error) {
+	$0
+	err = grpc.Errorf(codes.Unimplemented, "$1")
+  return
+}
