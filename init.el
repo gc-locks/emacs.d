@@ -45,3 +45,4 @@
 
 ;; auto loads
 (init-loader-load "~/.emacs.d/init")
+(put 'upcase-region 'disabled nil)
