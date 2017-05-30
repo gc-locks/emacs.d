@@ -8,6 +8,7 @@
 
 ;; tab indent
 (setq-default tab-width 2 indent-tabs-mode nil)
+(setq-default indent-tabs-mode nil)
 
 ;; hをバックスペースに
 (keyboard-translate ?\C-h ?\C-?)
