@@ -15,6 +15,7 @@
 (depends-on "go-autocomplete")
 (depends-on "go-eldoc")
 (depends-on "go-mode")
+(depends-on "go-rename")
 (depends-on "htmlize")
 (depends-on "idle-highlight-mode")
 (depends-on "init-loader")

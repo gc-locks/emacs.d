@@ -1,3 +1,6 @@
+;; bug for emacs 24.5
+(require 'cl)
+
 ;; 最初のあれを出さない
 (setq inhibit-startup-screen t)
 (setq initial-scratch-message nil)
