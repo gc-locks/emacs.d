@@ -12,6 +12,7 @@
 (depends-on "f")
 (depends-on "flycheck")
 (depends-on "flycheck-cask")
+(depends-on "flycheck-gometalinter")
 (depends-on "go-autocomplete")
 (depends-on "go-eldoc")
 (depends-on "go-mode")
