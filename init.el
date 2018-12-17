@@ -16,6 +16,9 @@
 (menu-bar-mode 0)
 (tool-bar-mode 0)
 
+;; スクロールバーを非表示
+(scroll-bar-mode 0)
+
 ;; tab indent
 (setq-default tab-width 2 indent-tabs-mode nil)
 (setq-default indent-tabs-mode nil)
