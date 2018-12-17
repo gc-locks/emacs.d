@@ -5,6 +5,7 @@
 (setq flycheck-gometalinter-fast t) ;; only run fast linters
 (setq flycheck-gometalinter-test t) ;; use in tests files
 (setq flycheck-gometalinter-deadline "10s")
+(setq flycheck-gometalinter-disable-linters '("gotype" "gosec"))
 
 ;; go-mode
 (add-hook 'go-mode-hook (lambda ()
