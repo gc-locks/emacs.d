@@ -1,2 +1,9 @@
-(let ((envs '("PATH" "GOROOT" "GOPATH" "GO111MODULE")))
-  (exec-path-from-shell-copy-envs envs))
+(let* ((zshpath (shell-command-to-string
+         "/usr/bin/env zsh -c 'printenv PATH'"))
+       (pathlst (split-string zshpath ":")))
+  (setq exec-path pathlst)
+  (setq eshell-path-env zshpath)
+  (setenv "PATH" zshpath))
+
+(setenv "GOROOT" "/usr/local/go")
+(setenv "GOPATH" "/home/gc/go")
